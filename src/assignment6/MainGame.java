@@ -8,7 +8,7 @@ package assignment6;
  *
  * @author stahc1596
  */
-public class Assignment6 {
+public class MainGame {
 
     /**
      * @param args the command line arguments
