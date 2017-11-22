@@ -14,6 +14,8 @@ public class MainGame {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Location caf1 = null;
         
+        System.out.println(caf1.getNext(1));
     }
 }
