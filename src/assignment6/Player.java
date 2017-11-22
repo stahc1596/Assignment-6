@@ -46,6 +46,7 @@ public class Player {
         //Method recieves the string of a location and returns with a
         //corresponding string
         //Requires location class
+        //Possibly delete this
         return location;
     }
     
