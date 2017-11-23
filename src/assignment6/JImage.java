@@ -10,24 +10,24 @@ import javax.swing.JComponent;
 
 /**
  *
- * @author stahc1596
+ * @author messr2578
  */
 public class JImage extends JComponent{
-    private BufferedImage image;
-    
-    @Override
-    public void paintComponent(Graphics g){
-        //There is an image to draw
-        if(image != null){
-            //Draw the image
-            g.drawImage(image, 0, 0, this.getWidth(), this.getHeight(), null);
+        private BufferedImage image;
+        
+        @Override
+        public void paintComponent(Graphics g){
+            // there is an image to draw
+            if(image!= null)
+                // draw the image
+               g.drawImage(image, 0, 0, this.getWidth(),this.getHeight(),null);
         }
-    }
+    
     
     public void setImage(BufferedImage img){
-        //Store the image
+        // store the image
         this.image = img;
-        //Repaint the draw
+        // repaint to draw
         repaint();
     }
 }
