@@ -10,14 +10,12 @@ package assignment6;
  */
 public class Player {
     
-    private int name;
     private int direction;
     private String location;
     
     //Constructor for the player. Name, Direction, and Location starts at a
     //certain spot
     public Player(){
-        this.name = 0;
         this.direction = 1;
         this.location = "Caf1";
     }
