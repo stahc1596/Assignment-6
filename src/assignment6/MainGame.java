@@ -6,11 +6,11 @@ package assignment6;
 
 /**
  *
- * @author stahc1596
+ * @author messr2578
  */
-public class MainGame extends javax.swing.JPanel {
+public class MainGame extends javax.swing.JFrame {
     private Player student;
-    private Location caf1;
+    private Location[] school;
     /**
      * Creates new form MainGame
      */
@@ -27,18 +27,13 @@ public class MainGame extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        turnLeft = new javax.swing.JButton();
         move = new javax.swing.JButton();
-        turnRight = new javax.swing.JButton();
-        location = new javax.swing.JLabel();
+        turnLeft = new javax.swing.JButton();
         jImage1 = new assignment6.JImage();
+        location = new javax.swing.JLabel();
+        turnRight = new javax.swing.JButton();
 
-        turnLeft.setText("Turn Left");
-        turnLeft.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                turnLeftActionPerformed(evt);
-            }
-        });
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         move.setText("Move Forward");
         move.addActionListener(new java.awt.event.ActionListener() {
@@ -47,6 +42,16 @@ public class MainGame extends javax.swing.JPanel {
             }
         });
 
+        turnLeft.setText("Turn Left");
+        turnLeft.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                turnLeftActionPerformed(evt);
+            }
+        });
+
+        location.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        location.setText("Huron Heights");
+
         turnRight.setText("Turn Right");
         turnRight.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -54,11 +59,8 @@ public class MainGame extends javax.swing.JPanel {
             }
         });
 
-        location.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        location.setText("Huron Heights");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -76,7 +78,7 @@ public class MainGame extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(74, 74, 74)
                         .addComponent(jImage1, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -87,28 +89,65 @@ public class MainGame extends javax.swing.JPanel {
                 .addComponent(jImage1, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(55, 55, 55)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(move, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                    .addComponent(move, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(turnRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(turnLeft, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    private void turnLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_turnLeftActionPerformed
-        student.turnLeft();
-    }//GEN-LAST:event_turnLeftActionPerformed
 
     private void moveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moveActionPerformed
         student.getDirection();
-        caf1.NorthDirect("N IMG_0045.JPG false Downstairs S");
-        String local = caf1.getLocation();
+        school[1].SetNorthDirect("IMG_0045.JPG"," false", "Downstairs", "S");
+        String local = school[1].getLocation();
         student.location(local);
+        System.out.println(local);
     }//GEN-LAST:event_moveActionPerformed
+
+    private void turnLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_turnLeftActionPerformed
+        student.turnLeft();
+    }//GEN-LAST:event_turnLeftActionPerformed
 
     private void turnRightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_turnRightActionPerformed
         student.turnRight();
     }//GEN-LAST:event_turnRightActionPerformed
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(MainGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(MainGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(MainGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(MainGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new MainGame().setVisible(true);
+            }
+        });
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private assignment6.JImage jImage1;
     private javax.swing.JLabel location;

@@ -40,12 +40,8 @@ public class Player {
     
     //Method takes the location and returns the new location after the player
     //moves
-    public String location(String location){
-        //Method recieves the string of a location and returns with a
-        //corresponding string
-        //Requires location class
-        //Possibly delete this
-        return location;
+    public void location(String location){
+        this.location = location;
     }
     
     //Method returns the direction
