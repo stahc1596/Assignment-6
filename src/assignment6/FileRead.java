@@ -32,5 +32,6 @@ public class FileRead {
         Scanner in = new Scanner(file);
         String test = in.nextLine();
         System.out.println(test);
+        for(int i = 0; i < )
     }
 }
