@@ -10,7 +10,7 @@ package assignment6;
  */
 public class MainGame extends javax.swing.JFrame {
     private Player student;
-    private Location[] school;
+    private FileRead school;
     /**
      * Creates new form MainGame
      */
@@ -100,10 +100,8 @@ public class MainGame extends javax.swing.JFrame {
 
     private void moveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moveActionPerformed
         student.getDirection();
-        school[1].SetNorthDirect("IMG_0045.JPG"," false", "Downstairs", "S");
-        String local = school[1].getLocation();
-        student.location(local);
-        System.out.println(local);
+        student.location("");
+        System.out.println("");
     }//GEN-LAST:event_moveActionPerformed
 
     private void turnLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_turnLeftActionPerformed
@@ -118,6 +116,7 @@ public class MainGame extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
