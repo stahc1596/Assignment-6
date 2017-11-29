@@ -115,7 +115,17 @@ public class Location {
             }
         }
     }
-    
+    public String nextDirection(int currDirect){
+        if(currDirect == 1){
+            return this.North[4];
+        }else if(currDirect == 2){
+            return this.East[4];
+        }else if(currDirect == 3){
+            return this.South[4];
+        }else{
+            return this.West[4];
+        }
+    }
     public String getLocation(){
         return this.Location;
     }

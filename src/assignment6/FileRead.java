@@ -82,4 +82,30 @@ public class FileRead {
            this.places[i].SetWestDirect(image,isBlock,nextLocal,nextDirect);
         }
     }
+    
+    public String getNextLocation(String current, int direction){
+        int i = 0;
+        while(current != this.places[i].getLocation()){
+            i++;
+        }
+        return this.places[i].getNext(direction);
+    }
+    
+    public int getNextDirection(String location, int direction){
+        int i = 0;
+        while(location != this.places[i].getLocation()){
+            i++;
+        }
+        String Direct = this.places[i].nextDirection(direction);
+        if(Direct == "1"){
+            return 1;
+        }else if(Direct == "2"){
+            return 2;
+        }else if(Direct == "3"){
+            return 3;
+        }else{
+            return 4;
+        }
+    }
 }
+
