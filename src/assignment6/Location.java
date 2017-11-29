@@ -16,14 +16,17 @@ public class Location {
     private String[] South;
     private String[] West;
 
-    public Location(String Location) {
-        this.Location = Location;
+    public Location() {
+        this.Location = null;
         this.North = new String[4];
         this.East = new String[4];
         this.South = new String[4];
         this.West = new String[4];
     }
     
+    public void setName(String place){
+        this.Location = place;
+    }
     public void SetNorthDirect(String image, String isBlocked,String nextlocate, String nextDirect){
         this.North[0]= "N";
         this.North[1]= image;
