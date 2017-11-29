@@ -13,7 +13,7 @@ import java.util.Scanner;
  */
 public class MainGame extends javax.swing.JFrame {
     private Player student;
-    private Location[] school;
+    private FileRead school;
     /**
      * Creates new form MainGame
      */
@@ -102,11 +102,12 @@ public class MainGame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void moveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moveActionPerformed
-        student.getDirection();
-        school[1].SetNorthDirect("IMG_0045.JPG"," false", "Downstairs", "S");
-        String local = school[1].getLocation();
-        student.location(local);
-        System.out.println(local);
+        int direct = student.getDirection();
+        String locate =student.getLocation();
+        int nextDirect = school.getNextDirection(locate, direct);
+        String nextLocate = school.getNextLocation(locate, direct);
+        student.setLocation(nextLocate);
+        student.setDirection(nextDirect);
     }//GEN-LAST:event_moveActionPerformed
 
     private void turnLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_turnLeftActionPerformed
@@ -121,24 +122,7 @@ public class MainGame extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        FileReader file = null;
-        try{
-            //Creating the file reader
-            file = new FileReader("input.txt");
-        }catch(Exception e){
-            //Handle the error
-            //Print out the lovely red errors
-            e.printStackTrace();
-            //Stop program
-            System.exit(0);
-        }
         
-        Scanner in = new Scanner(file);
-        String startL = in.nextLine();
-        String startD = in.nextLine();
-        for(int i = 0; i < 5; i++){
-            
-        }
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

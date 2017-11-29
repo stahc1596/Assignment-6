@@ -37,7 +37,7 @@ public class Player {
             this.direction--;
         }
     }
-    //Get location method
+    // get the  location
     public String getLocation(){
         return this.location;
     }
