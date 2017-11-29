@@ -37,15 +37,22 @@ public class Player {
             this.direction--;
         }
     }
-    
+    //Get location method
+    public String getLocation(){
+        return this.location;
+    }
     //Method takes the location and returns the new location after the player
     //moves
-    public void location(String location){
+    public void setLocation(String location){
         this.location = location;
     }
     
     //Method returns the direction
     public int getDirection(){
         return direction;
+    }
+    
+    public void setDirection(int direction){
+        this.direction = direction;
     }
 }
