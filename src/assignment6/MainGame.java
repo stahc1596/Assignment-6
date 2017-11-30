@@ -4,9 +4,6 @@
  */
 package assignment6;
 
-import java.io.FileReader;
-import java.util.Scanner;
-
 /**
  *
  * @author messr2578
@@ -19,6 +16,9 @@ public class MainGame extends javax.swing.JFrame {
      */
     public MainGame() {
         initComponents();
+        student.setDirection(school.GetStartingDirection());
+        student.setLocation(school.GetStartingLocation());
+        jImage1.setImage(null);
     }
 
     /**
@@ -30,11 +30,15 @@ public class MainGame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jImage1 = new assignment6.JImage();
+        jTextField1 = new javax.swing.JTextField();
         move = new javax.swing.JButton();
         turnLeft = new javax.swing.JButton();
-        jImage1 = new assignment6.JImage();
         location = new javax.swing.JLabel();
         turnRight = new javax.swing.JButton();
+        jImage2 = new assignment6.JImage();
+
+        jTextField1.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,33 +73,32 @@ public class MainGame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(89, 89, 89)
-                        .addComponent(turnLeft)
-                        .addGap(111, 111, 111)
-                        .addComponent(move)
-                        .addGap(112, 112, 112)
-                        .addComponent(turnRight))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(86, 86, 86)
+                        .addContainerGap()
                         .addComponent(location, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(74, 74, 74)
-                        .addComponent(jImage1, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(turnLeft)
+                        .addGap(116, 116, 116)
+                        .addComponent(move)
+                        .addGap(78, 78, 78)
+                        .addComponent(turnRight))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jImage2, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(22, 22, 22))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(location, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(79, 79, 79)
-                .addComponent(jImage1, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(move, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(turnRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(turnLeft, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jImage2, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(83, 83, 83)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(turnRight, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                    .addComponent(turnLeft, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(move, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         pack();
@@ -109,7 +112,8 @@ public class MainGame extends javax.swing.JFrame {
         student.setLocation(nextLocate);
         student.setDirection(nextDirect);
     }//GEN-LAST:event_moveActionPerformed
-
+    
+    
     private void turnLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_turnLeftActionPerformed
         student.turnLeft();
     }//GEN-LAST:event_turnLeftActionPerformed
@@ -155,6 +159,8 @@ public class MainGame extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private assignment6.JImage jImage1;
+    private assignment6.JImage jImage2;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel location;
     private javax.swing.JButton move;
     private javax.swing.JButton turnLeft;

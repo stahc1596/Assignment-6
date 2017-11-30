@@ -13,6 +13,8 @@ import java.util.Scanner;
  */
 public class FileRead {
     private Location[] places;
+    private String starting;
+    private int startlook;
     
     public FileRead(){
         
@@ -31,8 +33,17 @@ public class FileRead {
         }
         
         Scanner in = new Scanner(file);
-        String currLocat = in.nextLine();
+        this.starting = in.nextLine();
         String currdirect= in.nextLine();
+        if(currdirect == "1"){
+            this.startlook= 1;
+        }else if(currdirect == "2"){
+            this.startlook= 2;
+        }else if(currdirect == "3"){
+            this.startlook= 3;
+        }else{
+            this.startlook= 4;
+        }
        
         for(int i = 0; i < 23;i++){
             String place = in.nextLine();
@@ -107,5 +118,10 @@ public class FileRead {
             return 4;
         }
     }
+    public int GetStartingDirection(){
+    return this.startlook;
 }
-
+    public String GetStartingLocation(){
+    return this.starting;
+}
+}
