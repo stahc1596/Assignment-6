@@ -18,7 +18,6 @@ public class MainGame extends javax.swing.JFrame {
         initComponents();
         student.setDirection(school.GetStartingDirection());
         student.setLocation(school.GetStartingLocation());
-        jImage1.setImage(null);
     }
 
     /**
