@@ -8,16 +8,21 @@ package assignment6;
  *
  * @author messr2578
  */
-public class MainGame extends javax.swing.JFrame {
+public class SchoolGUI extends javax.swing.JFrame {
     private Player student;
     private FileRead school;
+    private SchoolMain game;
     /**
      * Creates new form MainGame
      */
-    public MainGame() {
+    
+    public SchoolGUI() {
         initComponents();
-        student.setDirection(school.GetStartingDirection());
-        student.setLocation(school.GetStartingLocation());
+    }
+    
+    public SchoolGUI(SchoolMain game) {
+        initComponents();
+        this.game = game;
     }
 
     /**
@@ -139,20 +144,20 @@ public class MainGame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SchoolGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SchoolGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SchoolGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainGame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SchoolGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainGame().setVisible(true);
+                new SchoolGUI().setVisible(true);
             }
         });
     }
