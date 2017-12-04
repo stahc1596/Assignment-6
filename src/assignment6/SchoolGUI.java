@@ -4,6 +4,8 @@
  */
 package assignment6;
 
+import java.awt.image.BufferedImage;
+
 /**
  *
  * @author messr2578
@@ -126,6 +128,9 @@ public class SchoolGUI extends javax.swing.JFrame {
         student.turnRight();
     }//GEN-LAST:event_turnRightActionPerformed
 
+    public void setImage(BufferedImage img){
+        jImage1.setImage(img);
+    }
     /**
      * @param args the command line arguments
      */

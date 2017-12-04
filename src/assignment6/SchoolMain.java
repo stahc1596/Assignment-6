@@ -4,6 +4,8 @@
  */
 package assignment6;
 
+import java.awt.image.BufferedImage;
+
 /**
  *
  * @author stahc1596
@@ -16,12 +18,14 @@ public class SchoolMain {
     
     public SchoolMain(int startD, String startL){
         gui = new SchoolGUI(this);
+        gui.setImage(loc.getLocation());
         gui.setVisible(true);
     }
     
     public void move(){
         int dir = player.getDirection();
         String local = loc.getNext(dir);
+        gui.setImage(loc.getLocation());
     }
     /**
      * @param args the command line arguments

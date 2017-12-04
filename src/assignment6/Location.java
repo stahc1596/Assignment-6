@@ -4,13 +4,15 @@
  */
 package assignment6;
 
+import java.awt.image.BufferedImage;
+
 /**
  *
  * @author messr2578
  */
 public class Location {
 
-    private String Location;
+    private BufferedImage Location;
     private String[] North;
     private String[] East;
     private String[] South;
@@ -24,7 +26,7 @@ public class Location {
         this.West = new String[4];
     }
     
-    public void setName(String place){
+    public void setName(BufferedImage place){
         this.Location = place;
     }
     public void SetNorthDirect(String image, String isBlocked,String nextlocate, String nextDirect){
@@ -126,7 +128,7 @@ public class Location {
             return this.West[4];
         }
     }
-    public String getLocation(){
+    public BufferedImage getLocation(){
         return this.Location;
     }
 }
