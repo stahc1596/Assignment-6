@@ -111,15 +111,9 @@ public class SchoolGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void moveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moveActionPerformed
-        int direct = student.getDirection();
-        String locate =student.getLocation();
-        int nextDirect = school.getNextDirection(locate, direct);
-        String nextLocate = school.getNextLocation(locate, direct);
-        student.setLocation(nextLocate);
-        student.setDirection(nextDirect);
+        game.move();
     }//GEN-LAST:event_moveActionPerformed
-    
-    
+   
     private void turnLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_turnLeftActionPerformed
         student.turnLeft();
     }//GEN-LAST:event_turnLeftActionPerformed
