@@ -15,9 +15,13 @@ public class SchoolMain {
     private SchoolGUI gui;
     private Location loc;
     private Player player;
+    private FileRead read;
     
     public SchoolMain(int startD, String startL){
         gui = new SchoolGUI(this);
+        read.readFile();
+        loc = new Location();
+        loc.getNext(startD);
         gui.setImage(loc.getLocation());
         gui.setVisible(true);
     }

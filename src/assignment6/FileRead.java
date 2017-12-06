@@ -4,6 +4,7 @@
  */
 package assignment6;
 
+import java.awt.image.BufferedImage;
 import java.io.FileReader;
 import java.util.Scanner;
 
@@ -35,11 +36,11 @@ public class FileRead {
         Scanner in = new Scanner(file);
         this.starting = in.nextLine();
         String currdirect= in.nextLine();
-        if(currdirect == "1"){
+        if(currdirect.equals("N")){
             this.startlook= 1;
-        }else if(currdirect == "2"){
+        }else if(currdirect.equals("E")){
             this.startlook= 2;
-        }else if(currdirect == "3"){
+        }else if(currdirect.equals("S")){
             this.startlook= 3;
         }else{
             this.startlook= 4;
@@ -96,7 +97,7 @@ public class FileRead {
     
     public String getNextLocation(String current, int direction){
         int i = 0;
-        while(current != this.places[i].getLocation()){
+        while(!current.equals(this.places[i].getLocation())){
             i++;
         }
         return this.places[i].getNext(direction);
@@ -104,15 +105,15 @@ public class FileRead {
     
     public int getNextDirection(String location, int direction){
         int i = 0;
-        while(location != this.places[i].getLocation()){
+        while(location.equals(this.places[i].getLocation())){
             i++;
         }
         String Direct = this.places[i].nextDirection(direction);
-        if(Direct == "1"){
+        if(Direct.equals("N")){
             return 1;
-        }else if(Direct == "2"){
+        }else if(Direct.equals("E")){
             return 2;
-        }else if(Direct == "3"){
+        }else if(Direct.equals("S")){
             return 3;
         }else{
             return 4;

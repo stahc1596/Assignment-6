@@ -29,28 +29,32 @@ public class Location {
     public void setName(BufferedImage place){
         this.Location = place;
     }
-    public void SetNorthDirect(String image, String isBlocked,String nextlocate, String nextDirect){
+    public void SetNorthDirect(String image, String isBlocked,String nextlocate,
+            String nextDirect){
         this.North[0]= "N";
         this.North[1]= image;
         this.North[2]= isBlocked;
         this.North[3]= nextlocate;
         this.North[4]= nextDirect;
     }
-    public void SetEastDirect(String image, String isBlocked,String nextlocate, String nextDirect){
+    public void SetEastDirect(String image, String isBlocked,String nextlocate,
+            String nextDirect){
         this.East[0]= "E";
         this.East[1]= image;
         this.East[2]= isBlocked;
         this.East[3]= nextlocate;
         this.East[4]= nextDirect;
     }
-    public void SetSouthDirect(String image, String isBlocked,String nextlocate, String nextDirect){
+    public void SetSouthDirect(String image, String isBlocked,String nextlocate,
+            String nextDirect){
         this.South[0]= "S";
         this.South[1]= image;
         this.South[2]= isBlocked;
         this.South[3]= nextlocate;
         this.South[4]= nextDirect;
     }
-    public void SetWestDirect(String image, String isBlocked,String nextlocate, String nextDirect){
+    public void SetWestDirect(String image, String isBlocked,String nextlocate,
+            String nextDirect){
         this.West[0]= "W";
         this.West[1]= image;
         this.West[2]= isBlocked;
