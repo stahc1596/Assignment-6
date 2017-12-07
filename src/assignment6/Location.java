@@ -5,6 +5,8 @@
 package assignment6;
 
 import java.awt.image.BufferedImage;
+import java.io.File;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -24,6 +26,16 @@ public class Location {
         this.East = new String[4];
         this.South = new String[4];
         this.West = new String[4];
+    }
+    
+    private BufferedImage loadImage(String name){
+        BufferedImage img = null;
+        try{
+            img = ImageIO.read(new File(name));
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return img;
     }
     
     public void setName(BufferedImage place){

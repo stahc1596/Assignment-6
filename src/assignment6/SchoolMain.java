@@ -16,6 +16,7 @@ public class SchoolMain {
     private Location loc;
     private Player player;
     private FileRead read;
+    private int dir;
     
     public SchoolMain(int startD, String startL){
         gui = new SchoolGUI(this);
@@ -27,7 +28,7 @@ public class SchoolMain {
     }
     
     public void move(){
-        int dir = player.getDirection();
+        this.dir = player.getDirection();
         String local = loc.getNext(dir);
         gui.setImage(loc.getLocation());
     }
