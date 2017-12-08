@@ -76,7 +76,7 @@ public class FileRead {
             imgnum++;
         }
         imgnum++;
-        for (int j = 0; j < 20; j++) {
+        for (int j = 0; j < 21; j++) {
             place[i] = loadImage(file + "IMG_0" + imgnum + ".JPG");
             wIw[i] = "IMG_0" + imgnum + ".JPG";
             i++;
@@ -88,11 +88,11 @@ public class FileRead {
         in.nextLine();
         String currdirect = in.next();
         in.nextLine();
-        if (currdirect == "1") {
+        if ("N".equals(currdirect)) {
             this.startlook = 1;
-        } else if (currdirect == "2") {
+        } else if ("E".equals(currdirect)) {
             this.startlook = 2;
-        } else if (currdirect == "3") {
+        } else if ("S".equals(currdirect)) {
             this.startlook = 3;
         } else {
             this.startlook = 4;
@@ -100,7 +100,8 @@ public class FileRead {
 
         for (i = 0; i < 23; i++) {
             this.places[i] = new Location();
-            String place = in.nextLine().trim();
+            String place = in.nextLine();
+            System.out.println(place);
             this.places[i].setName(place);
             in.next();
             String image = in.next();
@@ -114,46 +115,46 @@ public class FileRead {
             this.places[i].SetNorthDirect(image, isBlock, nextLocal, nextDirect);
             in.nextLine();
             in.next();
-            image = in.next().trim();
-            isBlock = in.next().trim();
+            image = in.next();
+            isBlock = in.next();
             nextLocal = null;
             nextDirect = null;
             if ("false".equals(isBlock)) {
-                nextLocal = in.next().trim();
-                nextDirect = in.next().trim();
+                nextLocal = in.next();
+                nextDirect = in.next();
             }
             this.places[i].SetEastDirect(image, isBlock, nextLocal, nextDirect);
             in.nextLine();
             in.next();
-            image = in.next().trim();
-            isBlock = in.next().trim();
+            image = in.next();
+            isBlock = in.next();
             nextLocal = null;
             nextDirect = null;
             if ("false".equals(isBlock)) {
-                nextLocal = in.next().trim();
-                nextDirect = in.next().trim();
+                nextLocal = in.next();
+                nextDirect = in.next();
             }
             this.places[i].SetSouthDirect(image, isBlock, nextLocal, nextDirect);
             in.nextLine();
             in.next();
-            image = in.next().trim();
-            isBlock = in.next().trim();
+            image = in.next();
+            isBlock = in.next();
             nextLocal = null;
             nextDirect = null;
             if ("false".equals(isBlock)) {
-                nextLocal = in.next().trim();
-                nextDirect = in.next().trim();
+                nextLocal = in.next();
+                nextDirect = in.next();
             }
             this.places[i].SetWestDirect(image, isBlock, nextLocal, nextDirect);
+            in.nextLine();
         }
     }
 
     public BufferedImage getLocatonImage(String imageName) {
         int i = 0;
-        System.out.println(this.wIw[i]);
         while (!this.wIw[i].equals(imageName)) {
+            System.out.println(this.wIw[i]);
             i++;
-            
         }
         return place[i];
     }
