@@ -18,10 +18,10 @@ public class Location {
 
     public Location() {
         this.Location = null;
-        this.North = new String[4];
-        this.East = new String[4];
-        this.South = new String[4];
-        this.West = new String[4];
+        this.North = new String[5];
+        this.East = new String[5];
+        this.South = new String[5];
+        this.West = new String[5];
     }
     
     public void setName(String place){
@@ -117,16 +117,27 @@ public class Location {
     }
     public String nextDirection(int currDirect){
         if(currDirect == 1){
-            return this.North[4];
+            return this.North[1];
         }else if(currDirect == 2){
-            return this.East[4];
+            return this.East[1];
         }else if(currDirect == 3){
-            return this.South[4];
+            return this.South[1];
         }else{
-            return this.West[4];
+            return this.West[1];
         }
     }
     public String getLocation(){
         return this.Location;
     }
-}
+    public String getImage(int currDirect){
+        if(currDirect == 1){
+            return this.North[2];
+        }else if(currDirect == 2){
+            return this.East[2];
+        }else if(currDirect == 3){
+            return this.South[2];
+        }else{
+            return this.West[2];
+        }
+    }
+    }

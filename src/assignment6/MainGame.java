@@ -4,6 +4,11 @@
  */
 package assignment6;
 
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import javax.imageio.ImageIO;
+
 /**
  *
  * @author messr2578
@@ -16,10 +21,23 @@ public class MainGame extends javax.swing.JFrame {
      */
     public MainGame() {
         initComponents();
+        this.school = new FileRead();
+        this.student = new Player();
         student.setDirection(school.GetStartingDirection());
         student.setLocation(school.GetStartingLocation());
+        Picture.setImage(school.getLocatonImage(school.getPlacesImage(student.getLocation(),student.getDirection())));
+        
     }
-
+    private BufferedImage loadImage(String image){
+        BufferedImage img = null;
+        try{
+            ImageIO.read(new File(image));
+            
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return img;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,7 +52,9 @@ public class MainGame extends javax.swing.JFrame {
         turnLeft = new javax.swing.JButton();
         location = new javax.swing.JLabel();
         turnRight = new javax.swing.JButton();
-        jImage2 = new assignment6.JImage();
+        Picture = new assignment6.JImage();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,25 +82,28 @@ public class MainGame extends javax.swing.JFrame {
             }
         });
 
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        Picture.add(jScrollPane1);
+        jScrollPane1.setBounds(-10, -40, 166, 20);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(location, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Picture, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(location, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
                         .addComponent(turnLeft)
                         .addGap(116, 116, 116)
                         .addComponent(move)
                         .addGap(78, 78, 78)
-                        .addComponent(turnRight))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jImage2, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(turnRight)))
                 .addGap(22, 22, 22))
         );
         layout.setVerticalGroup(
@@ -89,12 +112,12 @@ public class MainGame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(location, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jImage2, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(83, 83, 83)
+                .addComponent(Picture, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(turnRight, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                    .addComponent(move, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
                     .addComponent(turnLeft, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(move, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(turnRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         pack();
@@ -103,18 +126,28 @@ public class MainGame extends javax.swing.JFrame {
     private void moveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moveActionPerformed
         int direct = student.getDirection();
         String locate =student.getLocation();
+        if(school.isBlocked(locate, direct) == false){
         int nextDirect = school.getNextDirection(locate, direct);
         String nextLocate = school.getNextLocation(locate, direct);
         student.setLocation(nextLocate);
         student.setDirection(nextDirect);
+        }else{
+        jTextArea1.setText("That way is blocked");
+        }
+        String image = school.getPlacesImage(locate, direct);
+        Picture.setImage(school.getLocatonImage(image));
     }//GEN-LAST:event_moveActionPerformed
 
     private void turnLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_turnLeftActionPerformed
         student.turnLeft();
+        
+        jTextArea1.setText("");
     }//GEN-LAST:event_turnLeftActionPerformed
 
     private void turnRightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_turnRightActionPerformed
         student.turnRight();
+        jTextArea1.setText("");
+        
     }//GEN-LAST:event_turnRightActionPerformed
 
     /**
@@ -153,8 +186,10 @@ public class MainGame extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private assignment6.JImage Picture;
     private assignment6.JImage jImage1;
-    private assignment6.JImage jImage2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel location;
     private javax.swing.JButton move;
     private javax.swing.JButton turnLeft;
