@@ -88,11 +88,11 @@ public class FileRead {
         in.nextLine();
         String currdirect = in.next();
         in.nextLine();
-        if (currdirect == "1") {
+        if (currdirect.equals("N")) {
             this.startlook = 1;
-        } else if (currdirect == "2") {
+        } else if (currdirect.equals("E")) {
             this.startlook = 2;
-        } else if (currdirect == "3") {
+        } else if (currdirect.equals("S")) {
             this.startlook = 3;
         } else {
             this.startlook = 4;
@@ -184,11 +184,11 @@ public class FileRead {
         Scanner in = new Scanner(file);
         this.starting = in.nextLine();
         String currdirect = in.nextLine();
-        if (currdirect == "1") {
+        if (currdirect.equals("N")) {
             this.startlook = 1;
-        } else if (currdirect == "2") {
+        } else if (currdirect.equals("E")) {
             this.startlook = 2;
-        } else if (currdirect == "3") {
+        } else if (currdirect.equals("S")) {
             this.startlook = 3;
         } else {
             this.startlook = 4;
@@ -240,6 +240,7 @@ public class FileRead {
                 nextDirect = in.next();
             }
             this.places[i].SetWestDirect(image, isBlock, nextLocal, nextDirect);
+            in.nextLine();
         }
     }
 
@@ -257,11 +258,11 @@ public class FileRead {
             i++;
         }
         String Direct = this.places[i].nextDirection(direction);
-        if (Direct == "1") {
+        if (Direct.equals("1")) {
             return 1;
-        } else if (Direct == "2") {
+        } else if (Direct.equals("2")) {
             return 2;
-        } else if (Direct == "3") {
+        } else if (Direct.equals("3")) {
             return 3;
         } else {
             return 4;
