@@ -38,6 +38,9 @@ public class Location {
         return img;
     }
     
+    public void setImage(String name){
+        
+    }
     public void setName(BufferedImage place){
         this.Location = place;
     }
