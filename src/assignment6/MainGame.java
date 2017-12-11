@@ -143,7 +143,7 @@ public class MainGame extends javax.swing.JFrame {
         student.setLocation(nextLocate);
         student.setDirection(nextDirect);
         }else{
-        jTextArea1.setText("That way is blocked");
+        jTextArea1.setText("This way is blocked");
         }
         String image = school.getPlacesImage(student.getLocation(), student.getDirection());
         Picture.setImage(school.getLocatonImage(image));
