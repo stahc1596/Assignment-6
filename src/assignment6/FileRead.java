@@ -203,8 +203,6 @@ public class FileRead {
     public boolean isBlocked(String location, int direction) {
         int i = 0;
         while (!location.equals(this.places[i].getLocation())) {
-            System.out.println(this.places[i].getLocation());
-            System.out.println(location);
                 i++;
         }
         return this.places[i].isBlocked(direction);

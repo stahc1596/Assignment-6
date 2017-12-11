@@ -59,28 +59,28 @@ public class Location {
     public String getNext(int direction){
         if(direction == 1){
             if("false".equals(this.North[2])){
-                String next = this.North[3];
+                String next = this.North[3]+" "+ this.North[4];
                 return(next);
             }else{
                 return null;
             }
         }else if(direction == 2){
             if("false".equals(this.East[2])){
-                String next = this.East[3];
+                String next = this.East[3]+" "+ this.East[4];
                 return(next);
             }else{
                 return null;
             }
         }else if(direction == 3){
             if("false".equals(this.South[2])){
-                String next = this.South[3];
+                String next = this.South[3]+" "+ this.South[4];
                 return(next);
             }else{
                 return null;
             }
         }else{
             if("false".equals(this.West[2])){
-                String next = this.West[3];
+                String next = this.West[3]+" "+ this.West[4];
                 return(next);
             }else{
                 return null;

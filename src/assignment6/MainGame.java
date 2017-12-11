@@ -127,14 +127,25 @@ public class MainGame extends javax.swing.JFrame {
         int direct = student.getDirection();
         String locate =student.getLocation();
         if(school.isBlocked(locate, direct) == false){
-        int nextDirect = school.getNextDirection(locate, direct);
-        String nextLocate = school.getNextLocation(locate, direct);
+        String temp = school.getNextLocation(locate, direct);
+        String nextLocate = temp.substring(0, temp.length()-2);
+        String nextDirec = temp.substring(temp.length()-1);
+        int nextDirect =0;
+        if ("1".equals(nextDirec)) {
+            nextDirect = 1;
+        } else if ("2".equals(nextDirec)) {
+            nextDirect = 2;
+        } else if ("3".equals(nextDirec)) {
+            nextDirect = 3;
+        } else {
+            nextDirect = 4;
+        }
         student.setLocation(nextLocate);
         student.setDirection(nextDirect);
         }else{
         jTextArea1.setText("That way is blocked");
         }
-        String image = school.getPlacesImage(locate, direct);
+        String image = school.getPlacesImage(student.getLocation(), student.getDirection());
         Picture.setImage(school.getLocatonImage(image));
     }//GEN-LAST:event_moveActionPerformed
 
