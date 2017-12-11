@@ -59,28 +59,28 @@ public class Location {
     public String getNext(int direction){
         if(direction == 1){
             if("false".equals(this.North[2])){
-                String next = this.North[3]+" "+ this.North[4];
+                String next = this.North[3];
                 return(next);
             }else{
                 return null;
             }
         }else if(direction == 2){
             if("false".equals(this.East[2])){
-                String next = this.East[3]+" "+ this.East[4];
+                String next = this.East[3];
                 return(next);
             }else{
                 return null;
             }
         }else if(direction == 3){
             if("false".equals(this.South[2])){
-                String next = this.South[3]+" "+ this.South[4];
+                String next = this.South[3];
                 return(next);
             }else{
                 return null;
             }
         }else{
             if("false".equals(this.West[2])){
-                String next = this.West[3]+" "+ this.West[4];
+                String next = this.West[3];
                 return(next);
             }else{
                 return null;
@@ -131,13 +131,13 @@ public class Location {
     }
     public String getImage(int currDirect){
         if(currDirect == 1){
-            return this.North[2];
+            return this.North[1];
         }else if(currDirect == 2){
-            return this.East[2];
+            return this.East[1];
         }else if(currDirect == 3){
-            return this.South[2];
+            return this.South[1];
         }else{
-            return this.West[2];
+            return this.West[1];
         }
     }
     }

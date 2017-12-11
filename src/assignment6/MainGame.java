@@ -140,12 +140,15 @@ public class MainGame extends javax.swing.JFrame {
 
     private void turnLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_turnLeftActionPerformed
         student.turnLeft();
-        
+        String image = school.getPlacesImage(student.getLocation(), student.getDirection());
+        Picture.setImage(school.getLocatonImage(image));
         jTextArea1.setText("");
     }//GEN-LAST:event_turnLeftActionPerformed
 
     private void turnRightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_turnRightActionPerformed
         student.turnRight();
+        String image = school.getPlacesImage(student.getLocation(), student.getDirection());
+        Picture.setImage(school.getLocatonImage(image));
         jTextArea1.setText("");
         
     }//GEN-LAST:event_turnRightActionPerformed
