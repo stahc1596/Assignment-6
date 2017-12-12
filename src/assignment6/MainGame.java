@@ -131,13 +131,13 @@ public class MainGame extends javax.swing.JFrame {
         String nextLocate = temp.substring(0, temp.length()-2);
         String nextDirec = temp.substring(temp.length()-1);
         int nextDirect =0;
-        if ("1".equals(nextDirec)) {
+        if ("N".equals(nextDirec)) {
             nextDirect = 1;
-        } else if ("2".equals(nextDirec)) {
+        } else if ("E".equals(nextDirec)) {
             nextDirect = 2;
-        } else if ("3".equals(nextDirec)) {
+        } else if ("S".equals(nextDirec)) {
             nextDirect = 3;
-        } else {
+        } else if("W".equals(nextDirec)){
             nextDirect = 4;
         }
         student.setLocation(nextLocate);

@@ -21,8 +21,11 @@ public class FileRead {
     private int startlook;
     private BufferedImage[] place;
     private String[] wIw;
-
+/**the constructor
+ * creates the locations and compiles the images
+ */
     public FileRead() {
+        // creates the variables for the reading of the filereader to load the images
         this.places = new Location[23];
         place = new BufferedImage[95];
         wIw = new String[95];
@@ -40,6 +43,7 @@ public class FileRead {
             //Stop program
             System.exit(0);
         }
+        //loads all the images
         for (int j = 0; j < 3; j++) {
             place[i] = loadImage(file + "IMG_00" + imgnum + ".JPG");
             wIw[i] = "IMG_00" + imgnum + ".JPG";
@@ -82,12 +86,13 @@ public class FileRead {
             i++;
             imgnum++;
         }
-
+        // create the variables
         Scanner in = new Scanner(mages);
         this.starting = in.next();
         in.nextLine();
         String currdirect = in.next();
         in.nextLine();
+        // create the inital starting point
         if ("N".equals(currdirect)) {
             this.startlook = 1;
         } else if ("E".equals(currdirect)) {
@@ -97,7 +102,7 @@ public class FileRead {
         } else {
             this.startlook = 4;
         }
-
+        // load the locations and their information
         for (i = 0; i < 23; i++) {
             this.places[i] = new Location();
             String place = in.nextLine();
@@ -148,7 +153,11 @@ public class FileRead {
             in.nextLine();
         }
     }
-
+/**
+ * getting the location images
+ * @param imageName
+ * @return the requested image to load
+ */
     public BufferedImage getLocatonImage(String imageName) {
         int i = 0;
         while (!this.wIw[i].equals(imageName)) {
@@ -156,7 +165,11 @@ public class FileRead {
         }
         return place[i];
     }
-
+    /**
+     * loading the images
+     * @param name
+     * @return the requested images
+     */
     private BufferedImage loadImage(String name) {
         BufferedImage img = null;
         try {
@@ -166,7 +179,12 @@ public class FileRead {
         }
         return img;
     }
-
+/**
+ * getting the next location
+ * @param current
+ * @param direction
+ * @return  the next direction
+ */
     public String getNextLocation(String current, int direction) {
         int i = 0;
         while (!current.equals(this.places[i].getLocation())) {
@@ -174,7 +192,12 @@ public class FileRead {
         }
         return this.places[i].getNext(direction);
     }
-
+/**
+ * getting the next location of the images
+ * @param location
+ * @param direction
+ * @return the direction
+ */
     public int getNextDirection(String location, int direction) {
         int i = 0;
         while (!location.equals(this.places[i].getLocation())) {
@@ -191,11 +214,17 @@ public class FileRead {
             return 4;
         }
     }
-
+/**
+ * getting the first direction
+ * @return the first direction in the game
+ */
     public int GetStartingDirection() {
         return this.startlook;
     }
-
+/**
+ * getting the first location name
+ * @return the first direction in the game
+ */
     public String GetStartingLocation() {
         return this.starting;
     }
