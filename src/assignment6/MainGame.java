@@ -4,7 +4,6 @@
  */
 package assignment6;
 
-import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import javax.imageio.ImageIO;
@@ -12,6 +11,7 @@ import javax.imageio.ImageIO;
 /**
  *
  * @author messr2578
+ * created by Cameron S. and Ryan M.
  */
 public class MainGame extends javax.swing.JFrame {
     private Player student;
